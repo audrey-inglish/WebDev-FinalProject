@@ -1,4 +1,4 @@
-# RiverTrack - Streamlining River Flow Rate Monitoring
+# RiverTrack: Streamlining River Flow Rate Monitoring
 
 This site, targeted towards fishing enthusiasts, will showcase real-time data correlating to rivers in the US. Data will come from the Water Web Services Tool provided by the United States Geological Survey (USGS). Users will be able to save rivers to a collection for easy monitoring. Given the app’s focus on anglers, implemented validation will indicate whether or not a river’s flow conditions are optimal for fishing at any given moment.
 
@@ -37,7 +37,6 @@ I want to build at least three pages for this project: a Home page introducing t
 ## Dec 8
 - [ ] Finish up infrastructure requirements.
 - [ ] Revisit difficult topics/bugs.
-- 
 ---
 ## Dec 13 - Final Presentation
 
