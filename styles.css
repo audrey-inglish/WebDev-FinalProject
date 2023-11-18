@@ -1,0 +1,16 @@
+:root {
+    --default-background: #efeadd;
+    --accent-green: #739072;
+    --mid-green: #4F6F52;
+    --dark-green-text: #3A4D39;
+
+}
+
+
+body {
+    background-color: var(--default-background);
+    padding: 0;
+    margin: 0;
+}
+
+
