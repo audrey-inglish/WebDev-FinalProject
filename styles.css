@@ -9,6 +9,8 @@
 
 #main-container {
     display:flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 #content-container {
@@ -72,10 +74,21 @@ h1 {
     color:var(--default-background);
 }
 
+.menu-item a {
+    color: var(--default-background);
+    text-decoration: none;
+}
+
 footer {
     background-color: var(--dark-green-text);
     padding:1em;
     margin-top: auto;
     text-align: center;
     align-self: flex-end;
+    width: 100%;
+    color:var(--default-background);
+}
+
+footer a {
+    color:var(--default-background);
 }
