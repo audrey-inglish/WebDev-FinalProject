@@ -26,7 +26,8 @@
         <div id="content-container">
             <div id="table-container">
                 <div id="filter-div">
-                    <span>Search Sites: </span><input id="filter-input">
+                    <label for="filter-input">Search Sites: </label>
+                    <input id="filter-input" name="filter-input">
                 </div>
                 <table id="explore-table">
                     <tr>
@@ -38,23 +39,76 @@
                     </tr>
                 </table>
             </div>
-            <div id="favorites-list-div">
-                <h3>My Favorites</h3>
-                <br>
-                <br>
-                <br>
-                <br>
-                <br>
+            <div id="side-boxes-div">
+                <div id="favorites-list-div">
+                    <h3>My Favorites</h3>
+                    <br>
+                    <br>
+                    <br>
+
+                </div>
+                <aside id="tips-aside">
+                    <h3>Quick Tips</h3>
+                    <p>A few things to keep in mind when viewing this data:</p>
+                    <ul>
+                        <li>In small streams, a streamflow rate of 100-200 CFS is ideal for flyfishing.</li>
+                        <li>The ideal water temperature range for flyfishing is 7-20 ºC.</li>
+
+                    </ul>
+
+                </aside>
+                <div id="request-div">
+                    <h3>Make a Request</h2>
+                        <p>Can't find a certain river? Submit a request here.</p>
+                        <form id="request-form">
+                            <div id="name-input-div">
+                                <label for="river-request-input">River name:</label>
+                                <input name="river-request-input" id="river-request-input">
+                            </div>
+                            <div id="county-select-div">
+                                <label for="county-select">County: </label>
+                                <select name="county-select" id="county-select">
+                                    <option>Select</option>
+                                    <option>Beaver</option>
+                                    <option>Box Elder</option>
+                                    <option>Cache</option>
+                                    <option>Carbon</option>
+                                    <option>Daggett</option>
+                                    <option>Davis</option>
+                                    <option>Duchesne</option>
+                                    <option>Emery</option>
+                                    <option>Garfield</option>
+                                    <option>Grand</option>
+                                    <option>Iron</option>
+                                    <option>Juab</option>
+                                    <option>Kane</option>
+                                    <option>Millard</option>
+                                    <option>Morgan</option>
+                                    <option>Piute</option>
+                                    <option>Rich</option>
+                                    <option>Salt Lake</option>
+                                    <option>San Juan</option>
+                                    <option>Sanpete</option>
+                                    <option>Sevier</option>
+                                    <option>Summit</option>
+                                    <option>Tooele</option>
+                                    <option>Uintah</option>
+                                    <option>Utah</option>
+                                    <option>Wasatch</option>
+                                    <option>Washington</option>
+                                    <option>Wayne</option>
+                                    <option>Weber</option>
+                                </select>
+                            </div>
+                            <div id="depth-input-div">
+                                <label for="depth-input">Estimated Depth (meters):</label>
+                                <input type=number required="no"  name="depth-input" id="depth-input">
+                            </div>
+                            <button type="reset">Reset</button>
+                            <button type="submit">Submit</button>
+                        </form>
+                </div>
             </div>
-            <aside id="tips-aside">
-                <h3>Quick Tips</h3>
-                <ul>
-                    <li>In small streams, a streamflow rate of 100-200 CFS is ideal for flyfishing.</li>
-                    <li>The ideal water temperature range for flyfishing is 7-20 ºC.</li>
-
-                </ul>
-
-            </aside>
         </div>
 
 

@@ -126,32 +126,6 @@ footer a {
     margin-bottom: 0.6em;
 }
 
-
-/* .card-results-table {
-    width: 100%;
-    border-collapse: collapse;
-    
-}
-.card-results-table, .card-results-head, .card-results-cell {
-    border: 1px solid;
-}
-
-.card-results-head {
-    text-align: left;
-    padding-left: 0.5em;
-    background-color:#7390725c;
-}
-
-.card-results-cell p {
-    margin: 0em;
-    
-}
-
-.card-results-cell {
-    padding-left: 0.5em;
-    padding-right: 0.5em;
-} */
-
 table {
     width: 100%;
     border-collapse: collapse;
@@ -182,6 +156,8 @@ td {
     width: 100%;
 }
 #table-container {
+    flex-grow: 1;
+    margin-right: 3em;
     width: 60%;
 }
 
@@ -193,20 +169,47 @@ td {
     border-radius: var(--default-border-radius);
 }
 
-#filter-div span {
+#filter-div label {
     font-size: 18px;
 }
 
-#favorites-list-div, #tips-aside{
+#favorites-list-div, #tips-aside, #request-div{
     background-color: var(--transparent-accent-green);
-    width: 32%;
+    width: 80%;
     border-radius:var(--default-border-radius);
     padding:1em;
+    margin-bottom: 1em;
     
 }
 
-#tips-aside {
-    justify-self: flex-end;
-    margin-left:auto;
-    margin-top:2em;
+ul {
+    padding-left: 0.8em;
 }
+
+#side-boxes-div {
+    width:25%;
+}
+
+#request-form input {
+
+}
+
+#depth-input {
+    width: 3em;
+}
+
+#home-figure {
+    width: 100%;
+    margin:0;
+    text-align: center;
+}
+#home-figure img {
+    border-radius: var(--default-border-radius);
+    width:100%;
+}
+
+figcaption {
+    color:var(--mid-green);
+
+}
+
