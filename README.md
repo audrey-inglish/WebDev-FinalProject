@@ -10,20 +10,19 @@ I want to build at least three pages for this project: a Home page introducing t
 ---
 
 ## Nov 17
-- [ ] Set up the initial HTML pages (Home, Explore Rivers, User Favorites)
-- [ ] Establish links (anchor tags) for citing USGS.
+- [x] Set up the initial HTML pages (Home, Explore Rivers, User Favorites)
+- [x] Establish links (anchor tags) for citing USGS.
 - [ ] Figures/images on the home page for visual appeal.
 
-- [ ] Plan CSS styling and mockup elements (this includes color scheme, margin/padding, and border radius)
-- [ ] Set up basic page layout with nav, footer, etc.
-- [ ] Incorporate asides for helpful tips.
+- [x] Plan CSS styling and mockup elements (this includes color scheme, margin/padding, and border radius)
+- [x] Set up basic page layout with nav, footer, etc.
+- [x] Incorporate asides for helpful tips.
 
 - [ ] **HTML form**. A place for users to submit a request for a river to monitor. Will include text, number, select, reset, and submit inputs.
-- [ ] **Search bar** in the exploration page(text input for filtering) 
+- [x] **Search bar** in the exploration page(text input for filtering) 
 
-- [ ] **Search results table.** Table will show river name, general location, and average flow rate. (Use nth child styling for variation among rows, and hover effects--including transitions--to change row color & show focus). 
-- [ ] **River details.** When user clicks into a river, they’ll see the average flow rate, current gage height, geological location (include unordered/ordered lists, and use sections/articles to break info up)
-- [ ] **API Call**. Call from USGS API and access the data (async await/promises).
+- [x] **Search results table.** Table will show river name, general location, and average flow rate. (Use nth child styling for variation among rows, and hover effects--including transitions--to change row color & show focus). 
+- [x] **API Call**. Call from USGS API and access the data (async await/promises).
 
 
 ---

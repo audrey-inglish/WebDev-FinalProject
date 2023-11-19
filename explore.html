@@ -13,22 +13,52 @@
 
 <body>
     <div id="main-container">
-    <nav>
-        <span id="title">
-            <h1>RiverTrack</h1>
-        </span>
-        <div id="menu-item-container">
-            <span class="menu-item"><a href="./home.html">Home</a></span>
-            <span class="menu-item"><a href="./explore.html">Explore</a></span>
-            <span class="menu-item"><a href="./profile.html">Profile</a></span>
+        <nav>
+            <span id="title">
+                <h1>RiverTrack</h1>
+            </span>
+            <div id="menu-item-container">
+                <span class="menu-item"><a href="./home.html">Home</a></span>
+                <span class="menu-item"><a href="./explore.html">Explore</a></span>
+                <span class="menu-item"><a href="./profile.html">Profile</a></span>
+            </div>
+        </nav>
+        <div id="content-container">
+            <div id="table-container">
+                <div id="filter-div">
+                    <span>Search Sites: </span><input id="filter-input">
+                </div>
+                <table id="explore-table">
+                    <tr>
+                        <th>Site Name</th>
+                        <th>Streamflow</th>
+                        <th>Temperature</th>
+                        <th>Time Recorded</th>
+                        <th>Location</th>
+                    </tr>
+                </table>
+            </div>
+            <div id="favorites-list-div">
+                <h3>My Favorites</h3>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </div>
+            <aside id="tips-aside">
+                <h3>Quick Tips</h3>
+                <ul>
+                    <li>In small streams, a streamflow rate of 100-200 CFS is ideal for flyfishing.</li>
+                    <li>The ideal water temperature range for flyfishing is 7-20 ºC.</li>
+
+                </ul>
+
+            </aside>
         </div>
-    </nav>
-    <div id="content-container">
-        
-    </div>
 
 
-    <footer>Real-time data provided by <a href="https://www.usgs.gov/">USGS.</a></footer>
+        <footer>Real-time data provided by <a href="https://www.usgs.gov/">USGS.</a></footer>
     </div>
 
 </body>
