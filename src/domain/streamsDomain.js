@@ -1,22 +1,18 @@
 import streamsSvc from "./../svc/streamsSvc.js";
 
-var streams;
-InitializeStreamsData();
+var allStreams;
 
-function InitializeStreamsData() {
-    streamsSvc.GetAllStreams()
-        .then(data => {
-            streams = data;
-            console.log("stream data: ", streams);
-        })
+export async function InitializeStreamsData() {
+    allStreams = await streamsSvc.GetAllStreams();
 }
 
-export function GetAllStreams(){
-    return streams;
+export function GetAllStreams() {
+    return allStreams;
 }
 
 
 
 export default {
+    InitializeStreamsData,
     GetAllStreams,
 }
