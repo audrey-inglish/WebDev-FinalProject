@@ -10,12 +10,18 @@ export async function GetAllStreams() {
 
     allStreamData.value.timeSeries.forEach(timeSeries => {
         const siteName = timeSeries.sourceInfo.siteName;
-        const variable = timeSeries.variable.variableDescription.toLowerCase();
+        var variable = timeSeries.variable.variableDescription.toLowerCase();
         const unit = timeSeries.variable.unit.unitCode;
         const streamflowData = timeSeries.values[0].value[0];
 
 
         if (variable.includes('temperature, water') || variable.includes('discharge')) {
+            if(variable.includes('temperature, water')){
+                variable = "Temperature";
+            }
+            else if (variable.includes('discharge')){
+                variable = "Discharge";
+            }
 
             const key =  siteName;
 
