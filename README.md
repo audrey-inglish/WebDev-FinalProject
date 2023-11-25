@@ -28,14 +28,15 @@ I want to build at least three pages for this project: a Home page introducing t
 ---
 ## Nov 24
 - [x] **Populate the starting table.**
-- [ ] **Filter functions and event listeners.** Using data from the API, set up filter functions and event listeners to populate the table (access DOM elements, add/remove event listeners).
+- [ ] **Stylize table.**
+- [x] **Filter functions and event listeners.** Using data from the API, set up filter functions and event listeners to populate the table (access DOM elements, add/remove event listeners).
 - [x] **Structure/Organization**. Establish files in appropriate folders (ui, domain, svc)
-- [ ] **Read querystring.** (Allowing users to share specific rivers).
+- [ ] **Read querystring.** (Maybe based on a streamflow range?).
 ---
 ## Dec 1
 - [ ] **Local Storage**. Be able to save/retrieve user's list of favorite rivers from local storage.
 - [ ] **Drag/Drop**. User should be able to drag/drop rivers from the table into their favorites list in the side bar.
-- [ ] Start on infrastructure requirements (to be determined, based on what we discuss in class).
+- [ ] **Infrastructure.** Create a C# minimal API to store/retrieve users and their saved favorites.
 ---
 ## Dec 8
 - [ ] Finish up infrastructure requirements.

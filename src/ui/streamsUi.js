@@ -55,16 +55,15 @@ export function PopulateTable(streamsList) {
 
 const filterInput = document.getElementById("filter-input");
 filterInput.addEventListener("input", (e)=> {
-    console.log("value: ", e.target.value);
     initializeStreams(); //initialize the list of streams, setting it to allStreams variable
 
     const filterValue = e.target.value;
-
-    console.log("filterValue: ", filterValue);
-    console.log("allStreams:", allStreams);
     const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue)) ;
     PopulateTable(filteredStreams);
 });
+
+//using querystring
+
 
 
 
