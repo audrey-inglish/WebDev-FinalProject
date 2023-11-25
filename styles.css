@@ -1,7 +1,9 @@
 :root {
     --default-background: #efeadd;
     --accent-green: #739072;
+    --lightest-green: #9eb79d;
     --transparent-accent-green: #73907250;
+    --most-transparent-green: #73907230;
     --mid-green: #4F6F52;
     --dark-green-text: #3A4D39;
     --default-border-radius: 1em;
@@ -139,7 +141,7 @@ table, th, td {
 th {
     text-align: left;
     padding-left: 0.5em;
-    background-color:#7390725c;
+    background-color:var(--lightest-green);
 }
 
 td p {
@@ -155,6 +157,19 @@ td {
 #explore-table {
     width: 100%;
 }
+
+#explore-table-body tr:nth-child(even){
+    background-color: var(--transparent-accent-green);
+}
+#explore-table-body tr:nth-child(odd){
+    background-color: var(--most-transparent-green);
+}
+
+#explore-table-body tr:hover {
+    background-color: var(--default-background);
+}
+
+
 #table-container {
     flex-grow: 1;
     margin-right: 3em;

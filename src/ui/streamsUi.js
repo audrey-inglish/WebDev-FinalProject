@@ -54,16 +54,31 @@ export function PopulateTable(streamsList) {
 }
 
 const filterInput = document.getElementById("filter-input");
-filterInput.addEventListener("input", (e)=> {
-    initializeStreams(); //initialize the list of streams, setting it to allStreams variable
+filterInput.addEventListener("input", async (e) => {
+    await initializeStreams(); //initialize the list of streams, setting it to allStreams variable
 
     const filterValue = e.target.value;
-    const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue)) ;
+    const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue));
     PopulateTable(filteredStreams);
 });
 
-//using querystring
 
+//using querystring - example of URL: http://127.0.0.1:5500/explore.html?minFlow=50&maxFlow=70
+export async function FilterResultsToQuery() {
+    await initializeStreams();
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+
+    const minFlowParam = parseFloat(urlParams.get('minFlow'));
+    const maxFlowParam = parseFloat(urlParams.get('maxFlow'));
+
+    const filteredStreams = allStreams.filter((stream) => {
+        const streamflowValue = parseFloat(stream.Discharge.Value.value);
+        return streamflowValue >= minFlowParam && streamflowValue <= maxFlowParam;
+    })
+
+    PopulateTable(filteredStreams);
+}
 
 
 
@@ -91,5 +106,6 @@ function GenerateCard() {
 
 export default {
     PopulateTable,
+    FilterResultsToQuery
 
 }

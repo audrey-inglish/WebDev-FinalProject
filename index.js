@@ -6,4 +6,6 @@ await streamsDomain.InitializeStreamsData();
 const allStreams = streamsDomain.GetAllStreams();
 console.log("allStreams:", allStreams);
 
+
 streamsUi.PopulateTable(allStreams);
+streamsUi.FilterResultsToQuery();

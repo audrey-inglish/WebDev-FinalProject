@@ -28,10 +28,10 @@ I want to build at least three pages for this project: a Home page introducing t
 ---
 ## Nov 24
 - [x] **Populate the starting table.**
-- [ ] **Stylize table.**
+- [x] **Stylize table.** Use nth child and hover.
 - [x] **Filter functions and event listeners.** Using data from the API, set up filter functions and event listeners to populate the table (access DOM elements, add/remove event listeners).
 - [x] **Structure/Organization**. Establish files in appropriate folders (ui, domain, svc)
-- [ ] **Read querystring.** (Maybe based on a streamflow range?).
+- [x] **Read querystring.** (Based on a given streamflow range).
 ---
 ## Dec 1
 - [ ] **Local Storage**. Be able to save/retrieve user's list of favorite rivers from local storage.
