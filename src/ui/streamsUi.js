@@ -1,15 +1,16 @@
+
 import streamsDomain from "../domain/streamsDomain.js";
 
+var allStreams;
 
-var allStreams = await streamsDomain.GetAllStreams();
-
-
+async function initializeStreams() {
+    allStreams = await streamsDomain.GetAllStreams();
+    console.log("allStreams:", allStreams);
+}
 
 export function PopulateTable(streamsList) {
     const tableBody = document.getElementById("explore-table-body");
     tableBody.innerHTML = "";
-
-
 
     streamsList.forEach((stream) => {
         console.log("stream name", stream.Site);
@@ -51,6 +52,21 @@ export function PopulateTable(streamsList) {
 
 
 }
+
+const filterInput = document.getElementById("filter-input");
+filterInput.addEventListener("input", (e)=> {
+    console.log("value: ", e.target.value);
+    initializeStreams(); //initialize the list of streams, setting it to allStreams variable
+
+    const filterValue = e.target.value;
+
+    console.log("filterValue: ", filterValue);
+    console.log("allStreams:", allStreams);
+    const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue)) ;
+    PopulateTable(filteredStreams);
+});
+
+
 
 function ParseDateTime(dateTimeString) {
     const parsedDate = new Date(dateTimeString);

@@ -29,7 +29,7 @@ I want to build at least three pages for this project: a Home page introducing t
 ## Nov 24
 - [x] **Populate the starting table.**
 - [ ] **Filter functions and event listeners.** Using data from the API, set up filter functions and event listeners to populate the table (access DOM elements, add/remove event listeners).
-- [ ] **Structure/Organization**. Establish files in appropriate folders (ui, domain, svc)
+- [x] **Structure/Organization**. Establish files in appropriate folders (ui, domain, svc)
 - [ ] **Read querystring.** (Allowing users to share specific rivers).
 ---
 ## Dec 1
