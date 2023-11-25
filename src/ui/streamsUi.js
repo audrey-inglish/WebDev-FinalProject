@@ -72,10 +72,19 @@ export async function FilterResultsToQuery() {
     const minFlowParam = parseFloat(urlParams.get('minFlow'));
     const maxFlowParam = parseFloat(urlParams.get('maxFlow'));
 
-    const filteredStreams = allStreams.filter((stream) => {
-        const streamflowValue = parseFloat(stream.Discharge.Value.value);
-        return streamflowValue >= minFlowParam && streamflowValue <= maxFlowParam;
-    })
+    let filteredStreams;
+
+    //accounting for no querystring
+    if(!isNaN(minFlowParam) && !isNaN(maxFlowParam)){
+        filteredStreams = allStreams.filter((stream) => {
+            const streamflowValue = parseFloat(stream.Discharge.Value.value);
+            return streamflowValue >= minFlowParam && streamflowValue <= maxFlowParam;
+        })
+    }
+    else {
+        filteredStreams = allStreams;
+    }
+
 
     PopulateTable(filteredStreams);
 }
