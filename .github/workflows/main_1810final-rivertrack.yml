@@ -23,9 +23,11 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
+        working-directory: API
         run: dotnet build --configuration Release
 
       - name: dotnet publish
+        working-directory: API
         run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp
 
       - name: Upload artifact for deployment job
@@ -48,6 +50,7 @@ jobs:
           name: .net-app
       
       - name: Deploy to Azure Web App
+
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
