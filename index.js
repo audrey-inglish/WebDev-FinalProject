@@ -9,3 +9,7 @@ console.log("allStreams:", allStreams);
 
 streamsUi.PopulateTable(allStreams);
 streamsUi.FilterResultsToQuery();
+
+
+//notes:
+//when user drops into favorites list, post to the API (?)

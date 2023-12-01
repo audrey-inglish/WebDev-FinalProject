@@ -29,7 +29,7 @@
     width: 46%;
     padding-right: 5em;
 }
-#favorites-preview-section {
+#favorites-preview-section{
     width:46%;
     background-color: var(--transparent-accent-green);
     border-radius: var(--default-border-radius);
@@ -188,7 +188,7 @@ td {
     font-size: 18px;
 }
 
-#favorites-list-div, #tips-aside, #request-div{
+#favorites-list-div, #tips-aside, #request-div, #log-in-container{
     background-color: var(--transparent-accent-green);
     width: 80%;
     border-radius:var(--default-border-radius);
@@ -197,12 +197,19 @@ td {
     
 }
 
+#log-in-container p {
+    line-height: 1;
+}
+
 ul {
     padding-left: 0.8em;
 }
 
 #side-boxes-div {
     width:25%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #request-form input {

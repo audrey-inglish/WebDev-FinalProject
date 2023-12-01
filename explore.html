@@ -31,20 +31,28 @@
                 </div>
                 <table id="explore-table">
                     <thead>
-                    <tr>
-                        <th>Site Name</th>
-                        <th>Streamflow (CFS)</th>
-                        <th>Temperature</th>
-                        <th>Time Recorded</th>
-                        <!-- <th>Location</th> -->
-                    </tr>
-                </thead>
-                <tbody id="explore-table-body">
-                    <!-- Will generate content dynamically. -->
-                </tbody>
+                        <tr>
+                            <th>Site Name</th>
+                            <th>Streamflow (CFS)</th>
+                            <th>Temperature</th>
+                            <th>Time Recorded</th>
+                            <!-- <th>Location</th> -->
+                        </tr>
+                    </thead>
+                    <tbody id="explore-table-body">
+                        <!-- Will generate content dynamically. -->
+                    </tbody>
                 </table>
             </div>
             <div id="side-boxes-div">
+                <div id="log-in-container">
+                    <p>Please log in to see your saved rivers.</p>
+                    <span id="log-in-span">
+                        <!-- <label for="username-input">Username: </label> -->
+                        <input name="username-input" id="username-input" placeholder="Username">
+                        <button type="submit">Submit</button>
+                    </span>
+                </div>
                 <div id="favorites-list-div">
                     <h3>My Favorites</h3>
                     <br>
@@ -108,7 +116,7 @@
                             </div>
                             <div id="depth-input-div">
                                 <label for="depth-input">Estimated Depth (meters):</label>
-                                <input type=number required="no"  name="depth-input" id="depth-input">
+                                <input type=number required="no" name="depth-input" id="depth-input">
                             </div>
                             <button type="reset">Reset</button>
                             <button type="submit">Submit</button>
