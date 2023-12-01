@@ -35,6 +35,7 @@ I want to build at least three pages for this project: a Home page introducing t
 ---
 ## Dec 1
 - [ ] Style form elements and other inputs.
+- [ ] Set up basic sign in. Validate username input—if it doesn't exist, show error message.
 - [ ] **Local Storage**. Use local storage to save IDs of users that have signed in (?)
 - [ ] **Drag/Drop**. User should be able to drag/drop rivers from the table into their favorites list in the side bar.
 - [ ] **Infrastructure.** Create a C# minimal API to store/retrieve users and their saved favorites.

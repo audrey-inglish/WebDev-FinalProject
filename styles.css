@@ -200,6 +200,9 @@ td {
 #log-in-container p {
     line-height: 1;
 }
+#log-in-container-home {
+    padding-left: 1em;
+}
 
 ul {
     padding-left: 0.8em;
