@@ -89,7 +89,23 @@ export async function FilterResultsToQuery() {
     PopulateTable(filteredStreams);
 }
 
+const loginForm = document.querySelector(".log-in-form");
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const usernameInput = document.getElementById("username-input").value;
 
+    if(usernameInput !== ""){
+        SaveUsernameToLocalStorage(usernameInput);
+        console.log("username logged: ", usernameInput);
+    }
+    else {
+        //validation for empty usernames here?
+    }
+})
+
+function SaveUsernameToLocalStorage(userName) {
+    localStorage.setItem('username', userName);
+}
 
 function ParseDateTime(dateTimeString) {
     const parsedDate = new Date(dateTimeString);
