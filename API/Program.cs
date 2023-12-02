@@ -23,7 +23,7 @@ app.MapGet("/collections/{collectionName}/get-favorites", (HttpRequest request) 
 
 });
 
-app.MapGet("/users/{collectionName}/save-favorites", (HttpRequest request) => {
+app.MapGet("/collections/{collectionName}/save-favorites", (HttpRequest request) => {
     var collectionName = request.RouteValues["collectionName"];
     var rivers = request.Query["rivers"];
 
