@@ -188,7 +188,7 @@ td {
     font-size: 18px;
 }
 
-#favorites-list-div, #tips-aside, #request-div, #log-in-container{
+#favorites-list-div, #tips-aside, #request-div, #log-in-container, #range-form-div{
     background-color: var(--transparent-accent-green);
     width: 80%;
     border-radius:var(--default-border-radius);
