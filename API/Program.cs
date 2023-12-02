@@ -17,9 +17,9 @@ app.MapGet("/{name}/{color}", (HttpRequest request) =>
 {
     var name = request.RouteValues["name"];
      var color = request.RouteValues["color"];
-    var page = request.Query["affirm"];
+    var affirm = request.Query["affirm"];
     //var customHeader = request.Headers["X-CUSTOM-HEADER"];
-    return "{name} is {color}. {affirm}";
+    return $"{name} is {color}. {affirm}";
 });
 
 app.MapGet("/cheesecake", () => "Hello Cheesecake World!");
