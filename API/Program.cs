@@ -5,13 +5,26 @@ var app = builder.Build();
 // builder.Services.AddCors();
 
 
-// Dictionary<string, List<String> = new();
+Dictionary<string, List<string>> userFavorites= new();
 
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/users/{userId}",
     (string userId) => $"The user id is {userId}"
 );
+
+app.MapGet("/users/{userName}/favorites", (HttpRequest request) => {
+    var userName = request.RouteValues["userName"];
+    var rivers = request.Query["rivers"];
+
+    List<string> riversList = rivers.ToList<string>();
+
+    userFavorites[userName.ToString()] = riversList;
+
+    return userFavorites.ToString();
+
+});
+
 
 app.MapGet("/{name}/{color}", (HttpRequest request) =>
 {
