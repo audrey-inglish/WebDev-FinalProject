@@ -13,7 +13,7 @@ app.MapGet("/", () => "Hello World!");
 //     (int userId) => $"The user id is {userId}"
 // );
 
-app.MapGet("/cheesecake", () => "Hello World!");
+// app.MapGet("/cheesecake", () => "Hello World!");
 
 
 app.Run();
