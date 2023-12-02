@@ -52,7 +52,7 @@ export async function GetAllStreams() {
 }
 
 //reference: https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
-function AjaxSaveFavorites(collectionName, riverList) {
+export function AjaxSaveFavorites(collectionName, riverList) {
  
     // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();
@@ -77,7 +77,7 @@ function AjaxSaveFavorites(collectionName, riverList) {
     xhr.send();
 }
 
-function AjaxGetFavorites(collectionName) {
+export function AjaxGetFavorites(collectionName) {
  
     // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();

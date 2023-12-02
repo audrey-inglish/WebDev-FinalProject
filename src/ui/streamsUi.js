@@ -4,6 +4,7 @@ import streamsSvc from "../svc/streamsSvc.js";
 
 var allStreams;
 var siteIds = [];
+var collectionNamesArray = [];
 
 async function initializeStreams() {
     allStreams = await streamsDomain.GetAllStreams();
@@ -48,7 +49,12 @@ export function PopulateTable(streamsList) {
 
         const dragHandle = row.insertCell(4);
         dragHandle.classList.add("drag-handle");
-        dragHandle.innerHTML = `<a href="#" class="drag-handle" data-site-code="${stream.Id}" data-site-name="${stream.Site}">Drag me!</a>`;
+        dragHandle.innerHTML = `<a 
+                                href="#" class="drag-handle" 
+                                data-site-code="${stream.Id}" 
+                                data-site-name="${stream.Site}">   
+                                <img id="drag-icon" src="../../../img/draggableicongreen.png">
+                                </a>`;
 
 
     });
@@ -92,22 +98,12 @@ export async function FilterResultsToQuery() {
     PopulateTable(filteredStreams);
 }
 
-const loginForm = document.querySelector(".log-in-form");
-loginForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    const usernameInput = document.getElementById("username-input").value;
 
-    if (usernameInput !== "") {
-        SaveUsernameToLocalStorage(usernameInput);
-        console.log("username logged: ", usernameInput);
-    }
-    else {
-        //validation for empty usernames here?
-    }
-})
-
-function SaveUsernameToLocalStorage(userName) {
-    localStorage.setItem('username', userName);
+function SaveCollectionNameToLocalStorage(collectionName) {
+    console.log("got to local storage function");
+    console.log("collection name: ", collectionName);
+    collectionNamesArray.push(collectionName);
+    localStorage.setItem('saved collection names:', collectionNamesArray);
 }
 
 function ParseDateTime(dateTimeString) {
@@ -126,13 +122,6 @@ function ParseDateTime(dateTimeString) {
     return formattedDateTime;
 
 }
-
-
-function GenerateCard() {
-
-}
-
-
 
 //drag/drop logic
 const favoritesContainer = document.getElementById("favorites-list-div"); //this is the drop target
@@ -183,16 +172,16 @@ const collectionNameInput = document.getElementById("collection-name-input");
 
 
 saveFavoritesButton.addEventListener("click", (event) => {
+    //saving collection name to local storage
+    const collectionNameInput = document.getElementById("collection-name-input");
+    SaveCollectionNameToLocalStorage(collectionNameInput.value);
+    collectionNameInput.textContent = "";
+
     streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
     siteIds = [];
 })
 
-// const getCollectionButton = document.getElementById("get-collection-button");
-// const getCollectionInput = document.getElementById("get-collection-input");
 
-// getCollectionButton.addEventListener("click", (event) => {
-//     streamsSvc.AjaxGetFavorites(getCollectionInput.value);
-// })
 
 
 
