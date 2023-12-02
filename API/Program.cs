@@ -13,7 +13,14 @@ app.MapGet("/users/{userId}",
     (string userId) => $"The user id is {userId}"
 );
 
-app.MapGet("/users/{userName}/favorites", (HttpRequest request) => {
+app.MapGet("/users/{userName}/get-favorites", (HttpRequest request) => {
+    var userName = request.RouteValues["userName"];
+
+    return userFavorites[userName.ToString()];
+
+});
+
+app.MapGet("/users/{userName}/save-favorites", (HttpRequest request) => {
     var userName = request.RouteValues["userName"];
     var rivers = request.Query["rivers"];
 
@@ -25,17 +32,6 @@ app.MapGet("/users/{userName}/favorites", (HttpRequest request) => {
 
 });
 
-
-app.MapGet("/{name}/{color}", (HttpRequest request) =>
-{
-    var name = request.RouteValues["name"];
-     var color = request.RouteValues["color"];
-    var affirm = request.Query["affirm"];
-    //var customHeader = request.Headers["X-CUSTOM-HEADER"];
-    return $"{name} is {color}. {affirm}";
-});
-
-app.MapGet("/cheesecake", () => "Hello Cheesecake World!");
 
 
 app.Run();

@@ -10,6 +10,7 @@ export async function GetAllStreams() {
 
     allStreamData.value.timeSeries.forEach(timeSeries => {
         const siteName = timeSeries.sourceInfo.siteName;
+        const id = timeSeries.sourceInfo.siteCode[0].value;
         var variable = timeSeries.variable.variableDescription.toLowerCase();
         const unit = timeSeries.variable.unit.unitCode;
         const streamflowData = timeSeries.values[0].value[0];
@@ -28,6 +29,7 @@ export async function GetAllStreams() {
             if (!condensedStreamsData[key]) {
                 condensedStreamsData[key] = {
                     Site: siteName,
+                    Id: id,
                     [variable]: {
                         Unit: unit,
                         Value: streamflowData
