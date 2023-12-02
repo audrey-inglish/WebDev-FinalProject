@@ -1,7 +1,9 @@
 
 import streamsDomain from "../domain/streamsDomain.js";
+import streamsSvc from "../svc/streamsSvc.js";
 
 var allStreams;
+var siteIds = [];
 
 async function initializeStreams() {
     allStreams = await streamsDomain.GetAllStreams();
@@ -32,7 +34,7 @@ export function PopulateTable(streamsList) {
         const cellTemperature = row.insertCell(2);
         var tempValue;
         if (!stream.Temperature) {
-            tempValue = "/"
+            tempValue = "-"
         }
         else {
             tempValue = stream.Temperature.Value.value;
@@ -43,6 +45,11 @@ export function PopulateTable(streamsList) {
         const cellTimeRecorded = row.insertCell(3);
         const timeValue = ParseDateTime(stream.Discharge.Value.dateTime);
         cellTimeRecorded.textContent = timeValue;
+
+        const dragHandle = row.insertCell(4);
+        dragHandle.classList.add("drag-handle");
+        dragHandle.innerHTML = `<a href="#" class="drag-handle" data-site-code="${stream.Id}" data-site-name="${stream.Site}">Drag me!</a>`;
+
 
         //location cell
         // const cellLocation = row.insertCell(4);
@@ -75,7 +82,7 @@ export async function FilterResultsToQuery() {
     let filteredStreams;
 
     //accounting for no querystring
-    if(!isNaN(minFlowParam) && !isNaN(maxFlowParam)){
+    if (!isNaN(minFlowParam) && !isNaN(maxFlowParam)) {
         filteredStreams = allStreams.filter((stream) => {
             const streamflowValue = parseFloat(stream.Discharge.Value.value);
             return streamflowValue >= minFlowParam && streamflowValue <= maxFlowParam;
@@ -94,7 +101,7 @@ loginForm.addEventListener("submit", (e) => {
     e.preventDefault();
     const usernameInput = document.getElementById("username-input").value;
 
-    if(usernameInput !== ""){
+    if (usernameInput !== "") {
         SaveUsernameToLocalStorage(usernameInput);
         console.log("username logged: ", usernameInput);
     }
@@ -128,6 +135,65 @@ function ParseDateTime(dateTimeString) {
 function GenerateCard() {
 
 }
+
+
+
+//drag/drop logic
+const favoritesContainer = document.getElementById("favorites-list-div"); //this is the drop target
+const favoritesList = document.getElementById("favorites-list");
+const tableBody = document.getElementById("explore-table-body");
+
+tableBody.addEventListener("dragstart", (event) => {
+    const draggedRiver = event.target.closest(".drag-handle");
+    console.log("draggedRiver: ", draggedRiver);
+    const draggedRiverName = draggedRiver.getAttribute("data-site-name");
+    console.log("draggedRiverName: ", draggedRiverName);
+    const draggedRiverId = draggedRiver.getAttribute("data-site-code");
+
+    event.dataTransfer.setData('text/plain', draggedRiverId + "|" + draggedRiverName);
+
+    console.log("draggedRiverId: ", draggedRiverId);
+
+});
+
+favoritesContainer.addEventListener("dragover", (event) => {
+    event.preventDefault();
+});
+
+favoritesContainer.addEventListener("drop", (event) => {
+    event.preventDefault();
+    console.log("drop fired");
+
+    const data = event.dataTransfer.getData('text/plain');
+    var draggableData = data.split("|");
+    const draggedRiverId = draggableData[0];
+    const draggedRiverName = draggableData[1];
+    const listItem = document.createElement("li");
+    listItem.setAttribute("data-site-id", draggedRiverId);
+    // siteIds = [...draggedRiverId];
+    siteIds.push(draggedRiverId);
+    console.log("siteIds:", siteIds);
+    console.log("draggedRiverName:", draggedRiverName);
+    listItem.textContent = draggedRiverName;
+
+
+    favoritesList.appendChild(listItem);
+
+
+
+});
+
+const saveFavoritesButton = document.getElementById("save-favorites-button");
+const collectionNameInput = document.getElementById("collection-name-input");
+
+
+saveFavoritesButton.addEventListener("click", (event) => {
+    streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
+    siteIds = [];
+})
+
+
+
 
 export default {
     PopulateTable,

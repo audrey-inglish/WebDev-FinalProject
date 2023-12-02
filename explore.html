@@ -56,20 +56,25 @@
                 </div>
 
                 <div id="favorites-list-div">
-                    <h3>My Favorites</h3>
-                    <br>
-                    <br>
-                    <br>
+                    <h3>Create a Favorite List</h3>
+                    <label for="collection-name-input">Collection Name:</label>
+                    <input type="text" name="collection-name-input" id="collection-name-input">
+                    <div id="drag-target">
+                        <p>Drag Favorites Here</p>
+                        <ul id="favorites-list"></ul>
+                    </div>
+                    <button id="save-favorites-button">Save</button>
+
 
                 </div>
                 <div id="range-form-div">
                     <h3>Search For a Range</h3>
                     <form id="range-form" action="/explore.html" method="GET">
                         <label for="min-input">Minimum CFS: </label>
-                        <input id="min-input" name="minFlow"> 
+                        <input id="min-input" name="minFlow">
                         <br>
                         <label for="max-input">Maximum CFS: </label>
-                        <input id="max-input" name="maxFlow"> 
+                        <input id="max-input" name="maxFlow">
                         <button type="submit">Submit</button>
 
                     </form>
