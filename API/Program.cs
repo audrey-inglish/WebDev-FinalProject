@@ -24,11 +24,15 @@ app.MapGet("/users/{userName}/save-favorites", (HttpRequest request) => {
     var userName = request.RouteValues["userName"];
     var rivers = request.Query["rivers"];
 
-    List<string> riversList = rivers.ToList<string>();
+    List<string> riversList = rivers.ToList();
 
     userFavorites[userName.ToString()] = riversList;
-
-    return string.Join(Environment.NewLine, userFavorites);
+    string output = userName.ToString();
+    output += string.Join(',', riversList.ToArray());
+    return output;
+  
+        
+    //return string.Join(Environment.NewLine, userFavorites);
 
 });
 
