@@ -9,9 +9,9 @@ builder.Services.AddCors();
 
 app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/users/{userId}",
-    (int userId) => $"The user id is {userId}"
-);
+// app.MapGet("/users/{userId}",
+//     (int userId) => $"The user id is {userId}"
+// );
 
 app.MapGet("/cheesecake", () => "Hello World!");
 
