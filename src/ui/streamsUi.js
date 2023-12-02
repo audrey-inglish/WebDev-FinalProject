@@ -51,10 +51,6 @@ export function PopulateTable(streamsList) {
         dragHandle.innerHTML = `<a href="#" class="drag-handle" data-site-code="${stream.Id}" data-site-name="${stream.Site}">Drag me!</a>`;
 
 
-        //location cell
-        // const cellLocation = row.insertCell(4);
-        // const locationValue = stream.
-
     });
 
 
@@ -191,11 +187,20 @@ saveFavoritesButton.addEventListener("click", (event) => {
     siteIds = [];
 })
 
+// const getCollectionButton = document.getElementById("get-collection-button");
+// const getCollectionInput = document.getElementById("get-collection-input");
+
+// getCollectionButton.addEventListener("click", (event) => {
+//     streamsSvc.AjaxGetFavorites(getCollectionInput.value);
+// })
+
+
 
 
 
 export default {
     PopulateTable,
-    FilterResultsToQuery
+    FilterResultsToQuery,
+
 
 }
