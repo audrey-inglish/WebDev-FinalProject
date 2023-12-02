@@ -162,7 +162,6 @@ favoritesContainer.addEventListener("dragover", (event) => {
 
 favoritesContainer.addEventListener("drop", (event) => {
     event.preventDefault();
-    console.log("drop fired");
 
     const data = event.dataTransfer.getData('text/plain');
     var draggableData = data.split("|");
@@ -171,7 +170,7 @@ favoritesContainer.addEventListener("drop", (event) => {
     const listItem = document.createElement("li");
     listItem.setAttribute("data-site-id", draggedRiverId);
     // siteIds = [...draggedRiverId];
-    siteIds.push(draggedRiverId);
+    siteIds.push("rivers=" + draggedRiverId);
     console.log("siteIds:", siteIds);
     console.log("draggedRiverName:", draggedRiverName);
     listItem.textContent = draggedRiverName;

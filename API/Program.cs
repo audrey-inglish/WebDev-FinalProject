@@ -9,37 +9,30 @@ app.UseCors(policy =>
     .AllowAnyOrigin()
     .AllowAnyMethod()
     .AllowAnyHeader()
-);
+); 
+
 
 
 Dictionary<string, List<string>> userFavorites= new();
 
-app.MapGet("/", () => "Hello World!");
 
-app.MapGet("/users/{userId}",
-    (string userId) => $"The user id is {userId}"
-);
+app.MapGet("/collections/{collectionName}/get-favorites", (HttpRequest request) => {
+    var collectionName = request.RouteValues["collectionName"];
 
-app.MapGet("/users/{userName}/get-favorites", (HttpRequest request) => {
-    var userName = request.RouteValues["userName"];
-
-    return userFavorites[userName.ToString()];
+    return userFavorites[collectionName.ToString()];
 
 });
 
-app.MapGet("/users/{userName}/save-favorites", (HttpRequest request) => {
-    var userName = request.RouteValues["userName"];
+app.MapGet("/users/{collectionName}/save-favorites", (HttpRequest request) => {
+    var collectionName = request.RouteValues["collectionName"];
     var rivers = request.Query["rivers"];
 
     List<string> riversList = rivers.ToList();
 
-    userFavorites[userName.ToString()] = riversList;
-    string output = userName.ToString();
+    userFavorites[collectionName.ToString()] = riversList;
+    string output = collectionName.ToString();
     output += string.Join(',', riversList.ToArray());
     return output;
-  
-        
-    //return string.Join(Environment.NewLine, userFavorites);
 
 });
 

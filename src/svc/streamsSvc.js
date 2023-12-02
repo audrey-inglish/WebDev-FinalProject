@@ -52,14 +52,16 @@ export async function GetAllStreams() {
 }
 
 //reference: https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
-function AjaxSaveFavorites(userName, riverList) {
+function AjaxSaveFavorites(collectionName, riverList) {
  
-    // Creating Our XMLHttpRequest object 
+    // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();
  
-    // Making our connection  
-    let url = `https://1810final-rivertrack.azurewebsites.net/users/${userName}/save-favorites?`;
+    // Making connection  
+    let url = `https://1810final-rivertrack.azurewebsites.net/collections/${collectionName}/save-favorites?`;
     console.log("riverList", riverList);
+   
+
     url += riverList.join("&");
     console.log("url", url);
 
@@ -71,7 +73,7 @@ function AjaxSaveFavorites(userName, riverList) {
             console.log(this.responseText);
         }
     }
-    // Sending our request 
+    // Sending request 
     xhr.send();
 }
 
