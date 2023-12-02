@@ -10,10 +10,19 @@ var app = builder.Build();
 app.MapGet("/", () => "Hello World!");
 
 app.MapGet("/users/{userId}",
-    (int userId) => $"The user id is {userId}"
+    (string userId) => $"The user id is {userId}"
 );
 
-app.MapGet("/cheesecake", () => "Hello World!");
+app.MapGet("/{name}/{color}", (HttpRequest request) =>
+{
+    var name = request.RouteValues["name"];
+     var color = request.RouteValues["color"];
+    var page = request.Query["affirm"];
+    //var customHeader = request.Headers["X-CUSTOM-HEADER"];
+    return "{name} is {color}. {affirm}";
+});
+
+app.MapGet("/cheesecake", () => "Hello Cheesecake World!");
 
 
 app.Run();
