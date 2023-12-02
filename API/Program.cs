@@ -21,7 +21,7 @@ app.MapGet("/users/{userName}/favorites", (HttpRequest request) => {
 
     userFavorites[userName.ToString()] = riversList;
 
-    return userFavorites.ToString();
+    return string.Join(Environment.NewLine, userFavorites);
 
 });
 
