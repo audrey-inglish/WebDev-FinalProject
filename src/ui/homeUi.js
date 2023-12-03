@@ -3,14 +3,13 @@ import streamsSvc from "../svc/streamsSvc.js";
 
 const getCollectionButton = document.getElementById("get-collection-button");
 const getCollectionInput = document.getElementById("get-collection-input");
+const collectionInputDiv = document.getElementById("collection-input-div");
 const errorMessageDiv = document.getElementById("error-message-div");
 const cardContainer = document.getElementById("favorites-card-container");
+const previousCollectionDiv = document.getElementById("previous-collection-div");
+
+
 const errorSpan = document.createElement("span");
-
-// getCollectionButton.addEventListener("click", (event) => {
-//     indexHome.AjaxGetFavorites(getCollectionInput.value);
-// })
-
 
 
 getCollectionButton.addEventListener("click", (event) => {
@@ -19,15 +18,15 @@ getCollectionButton.addEventListener("click", (event) => {
     AjaxGetFavorites(getCollectionInput.value);
 });
 
-export function AjaxGetFavorites() {
+export function AjaxGetFavorites(collectionName) {
 
     // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();
     var json;
 
     // Making connection  
-    console.log("getCollectionInput.value: ", getCollectionInput.value);
-    let url = `https://1810final-rivertrack.azurewebsites.net/collections/${getCollectionInput.value}/get-favorites?`;
+    console.log("collectionName ", collectionName);
+    let url = `https://1810final-rivertrack.azurewebsites.net/collections/${collectionName}/get-favorites?`;
 
     xhr.open("GET", url, true);
 
@@ -51,7 +50,8 @@ export function AjaxGetFavorites() {
                     stationList.push(json[i]);
                 }
 
-                GenerateCollection(stationList); //need to pass in the data we're 
+                homeSvc.SaveLatestCollectionName(collectionName); //save collection's name to local storage
+                GenerateCollection(stationList);
             }
         }
     }
@@ -71,6 +71,23 @@ export async function GenerateCollection(idArray) {
         GenerateCard(stream);
     })
 
+}
+
+export function GenerateLastCollectionViewed() {
+    const previousCollection = homeSvc.GetLatestCollectionName();
+    console.log("previousCollection: ", previousCollection)
+
+    if (!previousCollection) {
+        previousCollectionDiv.textContent = "";
+        return;
+    }
+
+
+    console.log("previous collection: ", previousCollection);
+
+    AjaxGetFavorites(previousCollection);
+    //append message to the DOM saying what previous collection was pulled up
+    previousCollectionDiv.textContent = `Now Viewing: ${previousCollection}`;
 }
 
 function GenerateCard(stream) {
@@ -116,4 +133,5 @@ function BuildUrl(siteIdsArray) {
 
 export default {
     AjaxGetFavorites,
+    GenerateLastCollectionViewed
 }

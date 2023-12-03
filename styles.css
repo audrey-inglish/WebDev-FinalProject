@@ -184,6 +184,11 @@ td {
     border-radius: var(--default-border-radius);
 }
 
+#get-collection-input {
+    border: hidden;
+    font-family: var(--)
+}
+
 #filter-div label {
     font-size: 18px;
 }
@@ -194,6 +199,10 @@ td {
     border-radius:var(--default-border-radius);
     padding:1em;
     margin-bottom: 1em;
+    
+}
+
+#favorites-list-div {
     
 }
 
@@ -259,4 +268,23 @@ figcaption {
 
 #error-message-div {
     color: red;
+}
+
+#previous-collection-div {
+    background-color: var(--default-background);
+    padding: 1em;
+    border-radius: var(--default-border-radius);
+    text-align: center;
+    color: var(--dark-green-text);
+    font-size: 120%;
+    margin-top: 1em;
+    font-weight: 600;
+
+}
+
+button , input{
+    border-radius: 0.5em;
+    border: hidden;
+    padding: 0.33em;
+
 }

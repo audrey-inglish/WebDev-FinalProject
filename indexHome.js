@@ -5,5 +5,4 @@ import homeSvc from "./src/svc/homeSvc.js";
 //call GenerateCollection
 
 
-homeUi.AjaxGetFavorites();
-
+homeUi.GenerateLastCollectionViewed();
