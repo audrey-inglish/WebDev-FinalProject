@@ -149,7 +149,15 @@ saveFavoritesButton.addEventListener("click", (event) => {
     // streamsDomain.SaveCollectionNameToLocalStorage(collectionNameInput.value);
     collectionNameInput.textContent = "";
 
-    streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
+    var result = streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
+    if(result === "failure")
+    {
+        alert("Failed to save");
+    }
+    else{
+        alert("Collection saved");
+        collectionNameInput.textContent = "";
+    }
     siteIds = [];
 })
 

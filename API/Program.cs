@@ -22,7 +22,7 @@ Dictionary<string, List<string>> userFavorites = new();
 app.MapGet("/collections/{collectionName}/get-favorites", string (HttpRequest request) =>
 {
     var collectionName = request.RouteValues["collectionName"];
-    var result = new List<string>(){};
+    var result = new List<string>() { };
 
     if (userFavorites.ContainsKey(collectionName.ToString()))
     {
@@ -42,7 +42,15 @@ app.MapGet("/collections/{collectionName}/save-favorites", (HttpRequest request)
     userFavorites[collectionName.ToString()] = riversList;
     string output = collectionName.ToString();
     output += string.Join(',', riversList.ToArray());
-    return output;
+
+    if (output != null)
+    {
+        return "success";
+    }
+    else
+    {
+        return "failure";
+    }
 
 });
 

@@ -1,4 +1,4 @@
-import homeUi from "./src/ui/homeUi.js";
+import homeUi, { GenerateCollection } from "./src/ui/homeUi.js";
 import homeSvc from "./src/svc/homeSvc.js";
 
 
@@ -16,7 +16,7 @@ getCollectionButton.addEventListener("click", (event) => {
 
     const errorMessageDiv = document.getElementById("error-message-div");
     const errorSpan = document.createElement("span");
-    errorMessageDiv.innerHTML = "";
+    errorSpan.innerHTML = "";
 
     if (!userFavorites) {
         var errorMessage = "That collection doesn't exist. Please try another name.";
@@ -25,7 +25,7 @@ getCollectionButton.addEventListener("click", (event) => {
         errorMessageDiv.appendChild(errorSpan);
     }
     else {
-
+        // homeUi.GenerateCollection(userFavorites);
     }
     console.log("userFavorites:", userFavorites);
 });
