@@ -34,14 +34,15 @@ I want to build at least three pages for this project: a Home page introducing t
 - [x] **Read querystring.** (Based on a given streamflow range).
 ---
 ## Dec 1
-- [ ] Style form elements and other inputs.
-- [ ] Let users specify collection to view (home page).
-- [ ] Restructure javascript.
+- [x] Let users specify collection to view (home page).
 - [ ] **Local Storage**. Use local storage to save the names of collections that user has made.
 - [x] **Drag/Drop**. User should be able to drag/drop rivers from the table into their favorites list in the side bar.
 - [x] **Infrastructure.** Create a C# minimal API to store/retrieve users and their saved favorites.
 ---
 ## Dec 8
+- [ ] Fill in the "About This Service" paragraphs.
+- [ ] Style form elements and other inputs.
+- [ ] Finish validation (replace alerts with messages on the DOM).
 - [ ] Finish up infrastructure requirements.
 - [ ] Revisit difficult topics/bugs.
 ---

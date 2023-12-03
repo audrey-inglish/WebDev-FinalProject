@@ -6,7 +6,7 @@ var allStreams;
 var siteIds = [];
 
 async function initializeStreams() {
-    allStreams = await streamsDomain.GetAllStreams();
+    allStreams = await streamsDomain.GetStreams();
     console.log("allStreams:", allStreams);
 }
 
