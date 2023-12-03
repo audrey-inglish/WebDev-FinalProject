@@ -1,4 +1,6 @@
 using Microsoft.VisualBasic;
+using System.Text.Json;
+
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCors();
@@ -16,16 +18,12 @@ app.UseCors(policy =>
 Dictionary<string, List<string>> userFavorites = new();
 
 
-app.MapGet("/collections/{collectionName}/get-favorites", List<string> (HttpRequest request) =>
+app.MapGet("/collections/{collectionName}/get-favorites", string (HttpRequest request) =>
 {
     var collectionName = request.RouteValues["collectionName"];
-
     var result = userFavorites[collectionName.ToString()];
-    if (result == null)
-    {
-        return new List<string>() { };
-    }
-    return result;
+
+    return JsonSerializer.Serialize(result);
 });
 
 app.MapGet("/collections/{collectionName}/save-favorites", (HttpRequest request) =>
