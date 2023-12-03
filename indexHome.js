@@ -10,6 +10,10 @@ const getCollectionInput = document.getElementById("get-collection-input");
 
 getCollectionButton.addEventListener("click", (event) => {
     const userFavorites = homeSvc.AjaxGetFavorites(getCollectionInput.value);
+    console.log("userFavorites:", userFavorites);
+
+
+
     const errorMessageDiv = document.getElementById("error-message-div");
     const errorSpan = document.createElement("span");
     errorMessageDiv.innerHTML = "";

@@ -15,10 +15,9 @@ export function AjaxGetFavorites(collectionName) {
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
 
-
-
             console.log(this.responseText);
-
+            if (this.responseText) return JSON.parse(this.responseText);
+            else return "Shit!";
         }
     }
     // Sending request 

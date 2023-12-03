@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.VisualBasic;
 using System.Text.Json;
 
@@ -21,7 +22,12 @@ Dictionary<string, List<string>> userFavorites = new();
 app.MapGet("/collections/{collectionName}/get-favorites", string (HttpRequest request) =>
 {
     var collectionName = request.RouteValues["collectionName"];
-    var result = userFavorites[collectionName.ToString()];
+    var result = new List<string>(){};
+
+    if (userFavorites.ContainsKey(collectionName.ToString()))
+    {
+        result = userFavorites[collectionName.ToString()];
+    }
 
     return JsonSerializer.Serialize(result);
 });
