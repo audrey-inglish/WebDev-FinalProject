@@ -256,3 +256,7 @@ figcaption {
 #drag-icon {
     width: 1.3em;
 }
+
+#error-message-div {
+    color: red;
+}

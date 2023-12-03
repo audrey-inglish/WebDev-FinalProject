@@ -4,7 +4,6 @@ import streamsSvc from "../svc/streamsSvc.js";
 
 var allStreams;
 var siteIds = [];
-var collectionNamesArray = [];
 
 async function initializeStreams() {
     allStreams = await streamsDomain.GetAllStreams();
@@ -44,7 +43,7 @@ export function PopulateTable(streamsList) {
 
         //Time recorded for discharge values
         const cellTimeRecorded = row.insertCell(3);
-        const timeValue = ParseDateTime(stream.Discharge.Value.dateTime);
+        const timeValue = streamsDomain.ParseDateTime(stream.Discharge.Value.dateTime);
         cellTimeRecorded.textContent = timeValue;
 
         const dragHandle = row.insertCell(4);
@@ -98,31 +97,6 @@ export async function FilterResultsToQuery() {
     PopulateTable(filteredStreams);
 }
 
-
-function SaveCollectionNameToLocalStorage(collectionName) {
-    console.log("got to local storage function");
-    console.log("collection name: ", collectionName);
-    collectionNamesArray.push(collectionName);
-    localStorage.setItem('saved collection names:', collectionNamesArray);
-}
-
-function ParseDateTime(dateTimeString) {
-    const parsedDate = new Date(dateTimeString);
-
-    const options = {
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        timeZoneName: 'short'
-    };
-
-    const formattedDateTime = parsedDate.toLocaleString('en-US', options);
-
-    return formattedDateTime;
-
-}
-
 //drag/drop logic
 const favoritesContainer = document.getElementById("favorites-list-div"); //this is the drop target
 const favoritesList = document.getElementById("favorites-list");
@@ -163,8 +137,6 @@ favoritesContainer.addEventListener("drop", (event) => {
 
     favoritesList.appendChild(listItem);
 
-
-
 });
 
 const saveFavoritesButton = document.getElementById("save-favorites-button");
@@ -174,15 +146,12 @@ const collectionNameInput = document.getElementById("collection-name-input");
 saveFavoritesButton.addEventListener("click", (event) => {
     //saving collection name to local storage
     const collectionNameInput = document.getElementById("collection-name-input");
-    SaveCollectionNameToLocalStorage(collectionNameInput.value);
+    // streamsDomain.SaveCollectionNameToLocalStorage(collectionNameInput.value);
     collectionNameInput.textContent = "";
 
     streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
     siteIds = [];
 })
-
-
-
 
 
 
