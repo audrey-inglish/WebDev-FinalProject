@@ -146,15 +146,20 @@ const collectionNameInput = document.getElementById("collection-name-input");
 saveFavoritesButton.addEventListener("click", (event) => {
     //saving collection name to local storage
     const collectionNameInput = document.getElementById("collection-name-input");
+
+    if (!collectionNameInput.value) {
+        alert("Collection name can't be empty!");
+        return false;
+    }
+
     // streamsDomain.SaveCollectionNameToLocalStorage(collectionNameInput.value);
     collectionNameInput.textContent = "";
 
     var result = streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
-    if(result === "failure")
-    {
+    if (result === "failure") {
         alert("Failed to save");
     }
-    else{
+    else {
         alert("Collection saved");
         collectionNameInput.textContent = "";
     }

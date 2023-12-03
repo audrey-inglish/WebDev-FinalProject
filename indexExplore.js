@@ -3,7 +3,7 @@ import streamsDomain from "./src/domain/streamsDomain.js"
 import streamsUi from "./src/ui/streamsUi.js";
 
 await streamsDomain.InitializeStreamsData();
-const allStreams = streamsDomain.GetAllStreams();
+const allStreams = streamsDomain.GetStreams();
 console.log("allStreams:", allStreams);
 
 

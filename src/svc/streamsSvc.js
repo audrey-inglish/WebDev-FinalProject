@@ -1,8 +1,13 @@
 
 
 
-export async function GetAllStreams() {
-    const response = await fetch("https://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=ut&indent=on&siteStatus=active&siteType=ST");
+export async function GetStreams(url = null) {
+    if(!url)
+    {
+        url = "https://waterservices.usgs.gov/nwis/iv/?format=json&stateCd=ut&indent=on&siteStatus=active&siteType=ST";
+    }
+
+    const response = await fetch(url);
     const allStreamData = await response.json();
 
     const condensedStreamsData = {};
@@ -17,14 +22,14 @@ export async function GetAllStreams() {
 
 
         if (variable.includes('temperature, water') || variable.includes('discharge')) {
-            if(variable.includes('temperature, water')){
+            if (variable.includes('temperature, water')) {
                 variable = "Temperature";
             }
-            else if (variable.includes('discharge')){
+            else if (variable.includes('discharge')) {
                 variable = "Discharge";
             }
 
-            const key =  siteName;
+            const key = siteName;
 
             if (!condensedStreamsData[key]) {
                 condensedStreamsData[key] = {
@@ -53,20 +58,20 @@ export async function GetAllStreams() {
 
 //reference: https://www.geeksforgeeks.org/how-to-make-ajax-call-from-javascript/
 export function AjaxSaveFavorites(collectionName, riverList) {
- 
+
     // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();
- 
+
     // Making connection  
     let url = `https://1810final-rivertrack.azurewebsites.net/collections/${collectionName}/save-favorites?`;
     console.log("riverList", riverList);
-   
+
 
     url += riverList.join("&");
     console.log("url", url);
 
     xhr.open("GET", url, true);
- 
+
     // function execute after request is successful 
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -78,16 +83,16 @@ export function AjaxSaveFavorites(collectionName, riverList) {
 }
 
 export function AjaxGetFavorites(collectionName) {
- 
+
     // Creating XMLHttpRequest object 
     let xhr = new XMLHttpRequest();
- 
+
     // Making connection  
     let url = `https://1810final-rivertrack.azurewebsites.net/collections/${collectionName}/get-favorites?`;
-   
+
 
     xhr.open("GET", url, true);
- 
+
     // function execute after request is successful 
     xhr.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
@@ -99,7 +104,7 @@ export function AjaxGetFavorites(collectionName) {
 }
 
 export default {
-    GetAllStreams,
+    GetStreams,
     AjaxSaveFavorites,
     AjaxGetFavorites
 }

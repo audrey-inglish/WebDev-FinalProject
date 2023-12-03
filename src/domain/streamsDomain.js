@@ -6,10 +6,10 @@ var collectionNames = [];
 
 
 export async function InitializeStreamsData() {
-    allStreams = await streamsSvc.GetAllStreams();
+    allStreams = await streamsSvc.GetStreams();
 }
 
-export function GetAllStreams() {
+export function GetStreams() {
     return allStreams;
 }
 
@@ -44,10 +44,9 @@ export function ParseDateTime(dateTimeString) {
 }
 
 
-
 export default {
     InitializeStreamsData,
-    GetAllStreams,
+    GetStreams,
     ParseDateTime,
     // SaveCollectionNameToLocalStorage
 }
