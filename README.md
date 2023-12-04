@@ -4,7 +4,7 @@ This site, targeted towards fishing enthusiasts, will showcase real-time data co
 
 While exploring potential topics for this project, I was reminded of previous work I had done for a water users association here in Utah. There are a few realistic applications for river data, but my inspiration for this project was my Dad’s love of flyfishing. When I mentioned that I was thinking about incorporating a river data API into my project, he practically begged me to make a “fishing buddy” app for flyfishing fanatics like him to monitor the flow of their favorite rivers. 
 
-I want to build at least three pages for this project: a Home page introducing the user to the site; an Exploration page showing a list of rivers; and a Favorites page where users can get insights into their selected rivers of interest.
+I want to build two pages for this project: a Home page introducing the user to the site, and an Exploration page showing a list of rivers for users to select as favorites.
 
 
 ---
@@ -35,15 +35,15 @@ I want to build at least three pages for this project: a Home page introducing t
 ---
 ## Dec 1
 - [x] Let users specify collection to view (home page).
-- [ ] **Local Storage**. Use local storage to save the names of collections that user has made.
+- [x] **Local Storage**. Use local storage to save the names of collections that user has made.
 - [x] **Drag/Drop**. User should be able to drag/drop rivers from the table into their favorites list in the side bar.
 - [x] **Infrastructure.** Create a C# minimal API to store/retrieve users and their saved favorites.
 ---
 ## Dec 8
 - [ ] Fill in the "About This Service" paragraphs.
-- [ ] Style form elements and other inputs.
-- [ ] Finish validation (replace alerts with messages on the DOM).
-- [ ] Finish up infrastructure requirements.
+- [x] Style form elements and other inputs.
+- [x] Finish validation (replace alerts with messages on the DOM).
+- [x] Finish up infrastructure requirements.
 - [ ] Revisit difficult topics/bugs.
 ---
 ## Dec 13 - Final Presentation

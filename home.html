@@ -8,7 +8,10 @@
     <script src="./indexHome.js" type="module"></script>
     <link rel="stylesheet" href="styles.css">
 
-    <link rel="stylesheet" href="https://use.typekit.net/clu3qwe.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600;700;800&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -24,10 +27,6 @@
         </nav>
         <section id="content-container">
             <article id="about-section">
-                <figure id="home-figure">
-                    <img src="./img/Forest River Utah.jpg" alt="a flowing river">
-                    <!-- <figcaption>A flowing river in Zion National Park, UT.</figcaption> -->
-                </figure>
                 <h2>About This Service</h2>
                 <p>Sint velit sunt minim aliqua laborum ad anim aute. Nisi adipisicing aute voluptate quis exercitation
                     in commodo adipisicing culpa aliqua esse id do enim. Do elit exercitation labore quis adipisicing
@@ -41,11 +40,15 @@
                     laborum ad commodo aliquip occaecat ullamco. Sint sunt veniam occaecat cupidatat id proident ut.
                     Irure veniam sint eu qui et voluptate sit sit. Velit velit laboris minim excepteur deserunt laboris
                     nulla sunt cupidatat aliqua ut anim.</p>
+                <figure id="home-figure">
+                    <img src="./img/Forest River Utah.jpg" alt="a flowing river">
+                    <figcaption>A flowing river in Zion National Park, UT.</figcaption>
+                </figure>
             </article>
 
             <article id="favorites-preview-section">
                 <div id="collection-input-div">
-                    <p>Enter a collection name to see your saved rivers.</p>
+                    <h3>Enter a collection name to see your saved rivers.</h3>
                     <span id="collection-input-span">
                         <label for="get-collection-input">Collection Name: </label>
                         <input name="get-collection-input" id="get-collection-input" placeholder="">
@@ -54,15 +57,15 @@
                     <div id="previous-collection-div">
 
                     </div>
-                    <div id="error-message-div">
+                    <div id="error-message-div" class="error-message">
 
                     </div>
                 </div>
 
                 <div id="favorites-card-container">
-                <!-- generate card here based on input -->
-                
-            </div>
+                    <!-- generate card here based on input -->
+
+                </div>
             </article>
             <!-- <article class="figure-container">
                 <figure id="vertical-river">

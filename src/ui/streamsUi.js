@@ -5,6 +5,14 @@ import streamsSvc from "../svc/streamsSvc.js";
 var allStreams;
 var siteIds = [];
 
+const saveFavoritesButton = document.getElementById("save-favorites-button");
+const filterInput = document.getElementById("filter-input");
+const favoritesContainer = document.getElementById("favorites-list-div"); //this is the drop target
+const favoritesList = document.getElementById("favorites-list");
+const tableBody = document.getElementById("explore-table-body");
+
+
+
 async function initializeStreams() {
     allStreams = await streamsDomain.GetStreams();
     console.log("allStreams:", allStreams);
@@ -61,7 +69,6 @@ export function PopulateTable(streamsList) {
 
 }
 
-const filterInput = document.getElementById("filter-input");
 filterInput.addEventListener("input", async (e) => {
     await initializeStreams(); //initialize the list of streams, setting it to allStreams variable
 
@@ -69,7 +76,6 @@ filterInput.addEventListener("input", async (e) => {
     const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue));
     PopulateTable(filteredStreams);
 });
-
 
 //using querystring - example of URL: http://127.0.0.1:5500/explore.html?minFlow=50&maxFlow=70
 export async function FilterResultsToQuery() {
@@ -97,10 +103,6 @@ export async function FilterResultsToQuery() {
     PopulateTable(filteredStreams);
 }
 
-//drag/drop logic
-const favoritesContainer = document.getElementById("favorites-list-div"); //this is the drop target
-const favoritesList = document.getElementById("favorites-list");
-const tableBody = document.getElementById("explore-table-body");
 
 tableBody.addEventListener("dragstart", (event) => {
     const draggedRiver = event.target.closest(".drag-handle");
@@ -124,43 +126,53 @@ favoritesContainer.addEventListener("drop", (event) => {
 
     const data = event.dataTransfer.getData('text/plain');
     var draggableData = data.split("|");
+
     const draggedRiverId = draggableData[0];
     const draggedRiverName = draggableData[1];
+
     const listItem = document.createElement("li");
     listItem.setAttribute("data-site-id", draggedRiverId);
-    // siteIds = [...draggedRiverId];
     siteIds.push("rivers=" + draggedRiverId);
-    console.log("siteIds:", siteIds);
-    console.log("draggedRiverName:", draggedRiverName);
+
     listItem.textContent = draggedRiverName;
-
-
     favoritesList.appendChild(listItem);
-
 });
-
-const saveFavoritesButton = document.getElementById("save-favorites-button");
-const collectionNameInput = document.getElementById("collection-name-input");
 
 
 saveFavoritesButton.addEventListener("click", (event) => {
     //saving collection name to local storage
     const collectionNameInput = document.getElementById("collection-name-input");
+    collectionNameInput.textContent = "";
+    
+    const saveFeedbackDiv = document.getElementById("save-feedback-div");
+    const saveFeedbackSpan = document.createElement("span");
+    saveFeedbackDiv.innerHTML = "";
+    
+    var saveFeedbackMessage;
+
 
     if (!collectionNameInput.value) {
         alert("Collection name can't be empty!");
+        saveFeedbackMessage = "Collection name can't be empty!";
+        saveFeedbackSpan.textContent = saveFeedbackMessage;
+        saveFeedbackSpan.classList.add("error-message");
+        saveFeedbackDiv.appendChild(saveFeedbackSpan);
         return false;
     }
 
-    // streamsDomain.SaveCollectionNameToLocalStorage(collectionNameInput.value);
-    collectionNameInput.textContent = "";
-
     var result = streamsSvc.AjaxSaveFavorites(collectionNameInput.value, siteIds);
+    
     if (result === "failure") {
-        alert("Failed to save");
+        saveFeedbackMessage = "Failed to save!";
+        saveFeedbackSpan.textContent = saveFeedbackMessage;
+        saveFeedbackSpan.classList.add("error-message");
+        saveFeedbackDiv.appendChild(saveFeedbackSpan);
     }
     else {
-        alert("Collection saved");
+        saveFeedbackMessage = "Collection saved!";
+        saveFeedbackSpan.textContent = saveFeedbackMessage;
+        saveFeedbackSpan.classList.add("success-message");
+        saveFeedbackDiv.appendChild(saveFeedbackSpan);
         collectionNameInput.textContent = "";
     }
     siteIds = [];

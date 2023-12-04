@@ -15,6 +15,8 @@ const errorSpan = document.createElement("span");
 getCollectionButton.addEventListener("click", (event) => {
     errorSpan.innerHTML = "";
     cardContainer.innerHTML = "";
+    previousCollectionDiv.textContent = `Now Viewing: ${getCollectionInput.value}`;
+
     AjaxGetFavorites(getCollectionInput.value);
 });
 

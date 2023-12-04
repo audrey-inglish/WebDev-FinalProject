@@ -13,18 +13,6 @@ export function GetStreams() {
     return allStreams;
 }
 
-// export function SaveCollectionNameToLocalStorage(collectionName) {
-//     if(localStorage.getItem("savedCollections"))
-//     {
-//         const retrievedNames = localStorage.getItem("savedCollections"); 
-//         collectionNames = JSON.parse(retrievedNames);
-
-//     }
-    
-//     console.log("Array from local storage: ", collectionNames);
-//     collectionNames.push(collectionName);
-//     localStorage.setItem('savedCollections', JSON.stringify(collectionNames));
-// }
 
 export function ParseDateTime(dateTimeString) {
     const parsedDate = new Date(dateTimeString);
@@ -48,5 +36,4 @@ export default {
     InitializeStreamsData,
     GetStreams,
     ParseDateTime,
-    // SaveCollectionNameToLocalStorage
 }

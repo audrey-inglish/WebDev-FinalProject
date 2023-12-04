@@ -37,6 +37,7 @@
 }
 
 body {
+    font-family: 'EB Garamond', serif;
     background-color: var(--default-background);
     padding: 0em;
     margin: 0em;
@@ -56,8 +57,8 @@ h1 {
     padding: 0em;
     color: var(--default-background);
 
-    font-variation-settings: 'wght' 570;
-    font-size: 50px;
+    font-variation-settings: 'wght' 800;
+    font-size: 62px;
 }
 
 h2 {
@@ -277,8 +278,12 @@ figcaption {
     width: 1.3em;
 }
 
-#error-message-div {
+.error-message {
     color: red;
+}
+
+.success-message {
+    color: var(--mid-green);
 }
 
 #previous-collection-div {
