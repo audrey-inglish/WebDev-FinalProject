@@ -11,7 +11,7 @@
 }
 
 #main-container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     height: 100vh;
 }
@@ -20,8 +20,8 @@
     padding: 2em;
     display: flex;
     flex-direction: row;
-    overflow-x:auto;
-    flex-wrap:wrap;
+    overflow-x: auto;
+    flex-wrap: wrap;
     justify-content: space-between;
 }
 
@@ -29,8 +29,9 @@
     width: 46%;
     padding-right: 5em;
 }
-#favorites-preview-section{
-    width:46%;
+
+#favorites-preview-section {
+    width: 46%;
     background-color: var(--transparent-accent-green);
     border-radius: var(--default-border-radius);
 }
@@ -69,17 +70,17 @@ h2 {
 
 #menu-item-container {
     align-self: flex-end;
-    margin:0em;
+    margin: 0em;
 
     margin-left: auto;
-    padding:0em;
+    padding: 0em;
 
 }
 
 .menu-item {
     margin: 1em;
     font-size: 18px;
-    color:var(--default-background);
+    color: var(--default-background);
 }
 
 .menu-item a {
@@ -89,16 +90,16 @@ h2 {
 
 footer {
     background-color: var(--dark-green-text);
-    padding:1em;
+    padding: 1em;
     margin-top: auto;
     text-align: center;
     align-self: flex-end;
     width: 100%;
-    color:var(--default-background);
+    color: var(--default-background);
 }
 
 footer a {
-    color:var(--default-background);
+    color: var(--default-background);
 }
 
 .figure-container {
@@ -108,21 +109,22 @@ footer a {
 #vertical-river {
     width: 100%;
 }
-#vertical-river img{
-    width:100%;
+
+#vertical-river img {
+    width: 100%;
 }
 
 
 .river-card {
     background-color: var(--default-background);
     border-radius: var(--default-border-radius);
-    margin:0.7em;
+    margin: 0.7em;
     box-shadow: 1px 3px 10px var(--mid-green);
     padding: 1em;
 }
 
 .card-title {
-    font-size:20px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: 0.6em;
     margin-bottom: 0.6em;
@@ -131,22 +133,25 @@ footer a {
 table {
     width: 100%;
     border-collapse: collapse;
-    
+
 }
-table, th, td {
+
+table,
+th,
+td {
     border: 1px solid;
-    border-color:var(--dark-green-text);
+    border-color: var(--dark-green-text);
 }
 
 th {
     text-align: left;
     padding-left: 0.5em;
-    background-color:var(--lightest-green);
+    background-color: var(--lightest-green);
 }
 
 td p {
     margin: 0em;
-    
+
 }
 
 td {
@@ -158,10 +163,11 @@ td {
     width: 100%;
 }
 
-#explore-table-body tr:nth-child(even){
+#explore-table-body tr:nth-child(even) {
     background-color: var(--transparent-accent-green);
 }
-#explore-table-body tr:nth-child(odd){
+
+#explore-table-body tr:nth-child(odd) {
     background-color: var(--most-transparent-green);
 }
 
@@ -179,8 +185,8 @@ td {
 #filter-input {
     width: 30em;
     height: 2.5em;
-    border:hidden;
-    margin-bottom:1em;
+    border: hidden;
+    margin-bottom: 1em;
     border-radius: var(--default-border-radius);
 }
 
@@ -193,22 +199,23 @@ td {
     font-size: 18px;
 }
 
-#favorites-list-div, #tips-aside, #request-div, #log-in-container, #range-form-div{
+.explore-side-box {
     background-color: var(--transparent-accent-green);
     width: 80%;
-    border-radius:var(--default-border-radius);
-    padding:1em;
+    border-radius: var(--default-border-radius);
+    padding: 1em;
     margin-bottom: 1em;
-    
+
 }
 
 #favorites-list-div {
-    
+    transition: background-color 1s ease;
 }
 
 #log-in-container p {
     line-height: 1;
 }
+
 #log-in-container-home {
     padding-left: 1em;
 }
@@ -218,15 +225,13 @@ ul {
 }
 
 #side-boxes-div {
-    width:25%;
-    display:flex;
+    width: 25%;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-#request-form input {
-
-}
+#request-form input {}
 
 #depth-input {
     width: 3em;
@@ -234,16 +239,17 @@ ul {
 
 #home-figure {
     width: 100%;
-    margin:0;
+    margin: 0;
     text-align: center;
 }
+
 #home-figure img {
     border-radius: var(--default-border-radius);
-    width:100%;
+    width: 100%;
 }
 
 figcaption {
-    color:var(--mid-green);
+    color: var(--mid-green);
 
 }
 
@@ -252,14 +258,19 @@ figcaption {
     border: 1px dotted #DDD;
     background-color: var(--default-background);
     border-radius: var(--default-border-radius);
-    margin-top:0.5em;
+    margin-top: 1em;
+    margin-bottom: 1em;
     padding-left: 0.5em;
     padding-right: 0.5em;
+    transition: all 0.3s ease-in-out;
+}
 
+#drag-target:hover {
+    transform: scale(1.05);
 }
 
 #collection-input-div {
-    padding:1em;
+    padding: 1em;
 }
 
 #drag-icon {
@@ -282,7 +293,9 @@ figcaption {
 
 }
 
-button , input{
+button,
+input,
+select {
     border-radius: 0.5em;
     border: hidden;
     padding: 0.33em;
