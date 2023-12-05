@@ -37,7 +37,7 @@ I want to build two pages for this project: a Home page introducing the user to 
 - [x] Let users specify collection to view (home page).
 - [x] **Local Storage**. Use local storage to save the names of collections that user has made.
 - [x] **Drag/Drop**. User should be able to drag/drop rivers from the table into their favorites list in the side bar.
-- [x] **Infrastructure.** Create a C# minimal API to store/retrieve users and their saved favorites.
+- [x] **Infrastructure.** Create a C# minimal API to store/retrieve users' saved collections.
 ---
 ## Dec 8
 - [ ] Fill in the "About This Service" paragraphs.
