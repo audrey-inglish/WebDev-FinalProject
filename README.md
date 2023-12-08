@@ -41,6 +41,7 @@ I want to build two pages for this project: a Home page introducing the user to 
 ---
 ## Dec 8
 - [ ] Fill in the "About This Service" paragraphs.
+- [ ] Add ol and dl.
 - [x] Style form elements and other inputs.
 - [x] Finish validation (replace alerts with messages on the DOM).
 - [x] Finish up infrastructure requirements.

@@ -111,8 +111,8 @@ function GenerateCard(stream) {
             <p class="card-title">${stream.Site}</p>
             <table class="card-results-table">
                 <tr>
-                    <th class="card-results-head">Streamflow</th>
-                    <th class="card-results-head">Water Temp.</th>
+                    <th class="card-results-head">Streamflow (CFS)</th>
+                    <th class="card-results-head">Water Temp (&deg C)</th>
                 </tr>
                 <tr>
                     <td class="card-results-cell">${streamflowValue}</td>
