@@ -160,6 +160,7 @@ footer a {
 table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 90%;
     /* font-family: 'Poppins', sans-serif;
     font-size:95%; */
 }
