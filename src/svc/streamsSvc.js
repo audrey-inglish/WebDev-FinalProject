@@ -6,7 +6,6 @@ export async function GetStreams(url = null) {
 
     const response = await fetch(url);
     const allStreamData = await response.json();
-
     const condensedStreamsData = {};
 
 

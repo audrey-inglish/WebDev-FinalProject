@@ -18,7 +18,6 @@ app.UseCors(policy =>
 
 Dictionary<string, List<string>> userFavorites = new();
 
-
 app.MapGet("/collections/{collectionName}/get-favorites", string (HttpRequest request) =>
 {
     var collectionName = request.RouteValues["collectionName"];

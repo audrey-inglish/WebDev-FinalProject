@@ -71,7 +71,6 @@ export function PopulateTable(streamsList) {
 
 filterInput.addEventListener("input", async (e) => {
     await initializeStreams(); //initialize the list of streams, setting it to allStreams variable
-
     const filterValue = e.target.value;
     const filteredStreams = allStreams.filter((stream) => stream.Site.toLowerCase().includes(filterValue));
     PopulateTable(filteredStreams);
